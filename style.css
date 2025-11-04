@@ -1,10 +1,79 @@
+@font-face {
+  font-family: google-sans;
+  src: url("./fonts/google-sans.woff2");
+}
+@font-face {
+  font-family: roboto;
+  src: url("./fonts/roboto.woff2");
+}
+:root {
+  --font-A: google-sans, system-ui;
+  --font-B: roboto, system-ui;
+  font-size: 14px 1vw 18px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --text: hsl(0, 100%, 100%);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
+}
+
+body {
+  background-color: hsl(215, 78%, 46%);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0rem;
+  flex-direction: column;
+}
+
+section {
+  width: 100%;
+}
+
+section.hero {
+  background-image: radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 5%, transparent 60%), linear-gradient(136deg, transparent, hsl(199, 79%, 69%) 290%), linear-gradient(115deg, hsl(242, 76%, 77%), transparent 40%), linear-gradient(180deg, transparent 0, hsl(215, 78%, 46%) 70%), radial-gradient(ellipse at -70% -180%, transparent 80%, hsl(199, 79%, 69%) 0), radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%), radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
+  overflow-x: hidden;
+  padding: 1rem;
+  padding-top: 10rem;
+}
+section.hero .container {
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+  align-items: center;
+}
+section.hero .container h1 {
+  color: var(--text);
+  font-family: var(--font-A);
+  font-size: 3.5rem;
+}
+section.hero .container .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+section.hero .container .gallery .image-box {
+  position: relative;
+}
+section.hero .container .gallery .image-box:nth-child(1) .card {
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+}
+section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(1) {
+  background-image: url("./images/left-top.png");
+}
+section.hero .container .gallery .image-box:nth-child(2) .card {
+  background-image: url("./images/center.png");
 }/*# sourceMappingURL=style.css.map */
