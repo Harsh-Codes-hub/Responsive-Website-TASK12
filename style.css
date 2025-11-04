@@ -25,10 +25,6 @@ body {
   width: 100%;
 }
 
-body {
-  background-color: hsl(215, 78%, 46%);
-}
-
 main {
   width: 100%;
   height: 100%;
@@ -42,6 +38,7 @@ section {
 }
 
 section.hero {
+  position: relative;
   background-image: radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 5%, transparent 60%), linear-gradient(136deg, transparent, hsl(199, 79%, 69%) 290%), linear-gradient(115deg, hsl(242, 76%, 77%), transparent 40%), linear-gradient(180deg, transparent 0, hsl(215, 78%, 46%) 70%), radial-gradient(ellipse at -70% -180%, transparent 80%, hsl(199, 79%, 69%) 0), radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%), radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
   overflow-x: hidden;
   padding: 1rem;
@@ -61,19 +58,32 @@ section.hero .container h1 {
 section.hero .container .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 }
 section.hero .container .gallery .image-box {
   position: relative;
 }
-section.hero .container .gallery .image-box:nth-child(1) .card {
-  background-size: contain;
-  background-position: center;
-  position: absolute;
+section.hero .container .gallery .image-box .card {
+  border-radius: 0.7rem;
 }
 section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(1) {
-  background-image: url("./images/left-top.png");
+  position: absolute;
+  right: 0;
+  top: 90px;
+  width: 33.5rem;
+}
+section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(2) {
+  position: absolute;
+  width: 12.5rem;
+  bottom: -70px;
+  left: -60px;
+}
+section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(3) {
+  position: absolute;
+  width: 12.5rem;
+  bottom: 30px;
+  right: 0;
 }
 section.hero .container .gallery .image-box:nth-child(2) .card {
-  background-image: url("./images/center.png");
+  width: 22.5rem;
 }/*# sourceMappingURL=style.css.map */
