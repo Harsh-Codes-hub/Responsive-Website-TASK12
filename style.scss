@@ -25,12 +25,20 @@
   padding: 0;
   box-sizing: border-box;
   --text: hsl(0, 100%, 100%);
+  --bg: hsl(0, 100%, 100%);
+  --text-blue: hsl(215, 78%, 46%);
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: fit-content;
 }
 
 main {
@@ -79,40 +87,97 @@ section.hero {
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       .image-box {
-          position: relative;
-          .card {
-            border-radius: .7rem;
-          }
+        position: relative;
+        .card {
+          border-radius: 0.7rem;
+        }
         &:nth-child(1) {
-            .card {
-                &:nth-child(1) {
-                    position: absolute;
-                    right: 0;
-                    top: 90px;
-                    width: 33.5rem;
-                }
+          .card {
+            position: absolute;
 
-                &:nth-child(2) {
-                  position: absolute;  
-                  width: 12.5rem;
-                  bottom: -70px;
-                  left: -60px;
-                }
-                
-                &:nth-child(3) {
-                  position: absolute;  
-                  width: 12.5rem;
-                  bottom: 30px;
-                  right: 0;
-                }
-                
+            &:nth-child(1) {
+              right: 0;
+              top: 90px;
+              width: 33.5rem;
             }
+
+            &:nth-child(2) {
+              width: 12.5rem;
+              height: 18.5rem;
+              bottom: -70px;
+              left: -60px;
+            }
+
+            &:nth-child(3) {
+              width: 12.5rem;
+              height: 18.5;
+              bottom: 30px;
+              right: 0;
+            }
+          }
         }
         &:nth-child(2) {
           .card {
             width: 22.5rem;
           }
         }
+        &:nth-child(3) {
+          .card {
+            position: absolute;
+
+            &:nth-child(1) {
+              width: 12.5rem;
+              height: 18.5rem;
+              left: 0;
+              top: 100px;
+            }
+
+            &:nth-child(2) {
+              left: 220px;
+              top: 220px;
+              width: 30.5rem;
+            }
+
+            &:nth-child(3) {
+              bottom: 42px;
+              left: 0;
+              width: 12.5rem;
+              height: 18.5rem;
+            }
+
+            &:nth-child(4) {
+              left: 220px;
+              bottom: -78px;
+              width: 12.5rem;
+              height: 18.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .get-started {
+      @include flex-box(3rem, column);
+      align-items: center;
+      padding: 6rem 0rem;
+      max-width: 42%;
+      text-align: center;
+      h2 {
+        color: var(--text);
+        font-family: var(--font-A);
+        font-weight: 500;
+        font-size: 2rem;
+      }
+
+      button {
+        background-color: var(--bg);
+        color: var(--text-blue);
+        font-family: var(--font-B);
+        text-transform: capitalize;
+        font-weight: 500;
+        padding: .8rem 2.2rem;
+        border-radius: 50px;
+        font-size: .8rem;
       }
     }
   }
