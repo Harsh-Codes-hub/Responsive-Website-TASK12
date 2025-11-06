@@ -9,7 +9,7 @@
 :root {
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  font-size: 14px 1vw 18px;
+  font-size: clamp;
 }
 
 * {
@@ -57,89 +57,97 @@ section.hero .container {
   display: flex;
   gap: 5rem;
   flex-direction: column;
+  text-align: center;
   align-items: center;
 }
 section.hero .container h1 {
   color: var(--text);
   font-family: var(--font-A);
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 section.hero .container .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 0rem;
 }
-section.hero .container .gallery .image-box {
+section.hero .container .gallery .image-box1 {
   position: relative;
 }
-section.hero .container .gallery .image-box .card {
+section.hero .container .gallery .image-box1 .card {
+  position: absolute;
   border-radius: 0.7rem;
 }
-section.hero .container .gallery .image-box:nth-child(1) .card {
-  position: absolute;
-}
-section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(1) {
+section.hero .container .gallery .image-box1 .card:nth-child(1) {
   right: 0;
   top: 90px;
   width: 33.5rem;
 }
-section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(2) {
+section.hero .container .gallery .image-box1 .card:nth-child(2) {
   width: 12.5rem;
   height: 18.5rem;
-  bottom: -70px;
-  left: -60px;
+  bottom: -80px;
+  right: 220px;
 }
-section.hero .container .gallery .image-box:nth-child(1) .card:nth-child(3) {
+section.hero .container .gallery .image-box1 .card:nth-child(3) {
   width: 12.5rem;
-  height: 18.5;
-  bottom: 30px;
-  right: 0;
+  height: 18.5rem;
+  bottom: 40px;
+  right: 0px;
 }
-section.hero .container .gallery .image-box:nth-child(2) .card {
+section.hero .container .gallery .image-box2 {
+  position: relative;
+  width: 18rem;
+  height: 48rem;
+}
+section.hero .container .gallery .image-box2 .card {
   width: 22.5rem;
+  width: 16rem;
 }
-section.hero .container .gallery .image-box:nth-child(3) .card {
+section.hero .container .gallery .image-box3 {
+  position: relative;
+}
+section.hero .container .gallery .image-box3 .card {
   position: absolute;
+  border-radius: 0.7rem;
 }
-section.hero .container .gallery .image-box:nth-child(3) .card:nth-child(1) {
+section.hero .container .gallery .image-box3 .card:nth-child(1) {
   width: 12.5rem;
   height: 18.5rem;
   left: 0;
   top: 100px;
 }
-section.hero .container .gallery .image-box:nth-child(3) .card:nth-child(2) {
+section.hero .container .gallery .image-box3 .card:nth-child(2) {
   left: 220px;
   top: 220px;
   width: 30.5rem;
 }
-section.hero .container .gallery .image-box:nth-child(3) .card:nth-child(3) {
-  bottom: 42px;
+section.hero .container .gallery .image-box3 .card:nth-child(3) {
+  bottom: 60px;
   left: 0;
   width: 12.5rem;
   height: 18.5rem;
 }
-section.hero .container .gallery .image-box:nth-child(3) .card:nth-child(4) {
+section.hero .container .gallery .image-box3 .card:nth-child(4) {
   left: 220px;
-  bottom: -78px;
+  bottom: -70px;
   width: 12.5rem;
   height: 18.5rem;
 }
-section.hero .container .get-started {
+section.hero .get-started {
   display: flex;
   gap: 3rem;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 0rem;
-  max-width: 42%;
   text-align: center;
+  width: 90%;
 }
-section.hero .container .get-started h2 {
+section.hero .get-started h2 {
   color: var(--text);
   font-family: var(--font-A);
   font-weight: 500;
   font-size: 2rem;
 }
-section.hero .container .get-started button {
+section.hero .get-started button {
   background-color: var(--bg);
   color: var(--text-blue);
   font-family: var(--font-B);

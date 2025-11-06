@@ -17,7 +17,7 @@
 :root {
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  font-size: 14px 1vw 18px;
+  font-size: clamp(14px 1vw 18px);
 }
 
 * {
@@ -74,27 +74,24 @@ section.hero {
 
   .container {
     @include flex-box(5rem, column);
+    text-align: center;
     align-items: center;
 
     h1 {
       color: var(--text);
       font-family: var(--font-A);
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      .image-box {
+      gap: 0rem;
+      .image-box1 {
         position: relative;
         .card {
+          position: absolute;
           border-radius: 0.7rem;
-        }
-        &:nth-child(1) {
-          .card {
-            position: absolute;
-
             &:nth-child(1) {
               right: 0;
               top: 90px;
@@ -104,26 +101,33 @@ section.hero {
             &:nth-child(2) {
               width: 12.5rem;
               height: 18.5rem;
-              bottom: -70px;
-              left: -60px;
+              bottom: -80px;
+              right: 220px;
             }
 
             &:nth-child(3) {
               width: 12.5rem;
-              height: 18.5;
-              bottom: 30px;
-              right: 0;
+              height: 18.5rem;
+              bottom: 40px;
+              right: 0px;
             }
           }
         }
-        &:nth-child(2) {
+        .image-box2 {
+          position: relative;
+          width: 18rem;
+          height: 48rem;
           .card {
             width: 22.5rem;
+            width: 16rem;
           }
         }
-        &:nth-child(3) {
+        .image-box3 {
+          position: relative;
+
           .card {
             position: absolute;
+            border-radius: 0.7rem;
 
             &:nth-child(1) {
               width: 12.5rem;
@@ -139,7 +143,7 @@ section.hero {
             }
 
             &:nth-child(3) {
-              bottom: 42px;
+              bottom: 60px;
               left: 0;
               width: 12.5rem;
               height: 18.5rem;
@@ -147,7 +151,7 @@ section.hero {
 
             &:nth-child(4) {
               left: 220px;
-              bottom: -78px;
+              bottom: -70px;
               width: 12.5rem;
               height: 18.5rem;
             }
@@ -159,13 +163,12 @@ section.hero {
     .get-started {
       @include flex-box(3rem, column);
       align-items: center;
-      padding: 6rem 0rem;
-      max-width: 42%;
       text-align: center;
+
       h2 {
         color: var(--text);
         font-family: var(--font-A);
-        font-weight: 500;
+        font-weight: 400;
         font-size: 2rem;
       }
 
@@ -181,4 +184,4 @@ section.hero {
       }
     }
   }
-}
+
