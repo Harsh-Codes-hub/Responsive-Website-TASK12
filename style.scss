@@ -17,7 +17,7 @@
 :root {
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  font-size: clamp(14px 1vw 18px);
+  font-size: clamp(14px, 1vw, 18px);
 }
 
 * {
@@ -168,7 +168,7 @@ section.hero {
       h2 {
         color: var(--text);
         font-family: var(--font-A);
-        font-weight: 400;
+        font-weight: 500; 
         font-size: 2rem;
       }
 
