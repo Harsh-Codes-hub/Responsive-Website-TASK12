@@ -86,102 +86,112 @@ section.hero {
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0rem;
+      width: 1154px;
+      gap: 2rem;
+      position: relative;
+
       .image-box1 {
         position: relative;
+        top: 90px;
         .card {
           position: absolute;
           border-radius: 0.7rem;
-            &:nth-child(1) {
-              right: 0;
-              top: 90px;
-              width: 33.5rem;
-            }
+          object-fit: cover;
+          object-position: center;
 
-            &:nth-child(2) {
-              width: 12.5rem;
-              height: 18.5rem;
-              bottom: -80px;
-              right: 220px;
-            }
-
-            &:nth-child(3) {
-              width: 12.5rem;
-              height: 18.5rem;
-              bottom: 40px;
-              right: 0px;
-            }
+          &:nth-child(1) {
+            width: 525px;
+            height: 312px;
+            right: 0;
+            top: -10px;
           }
-        }
-        .image-box2 {
-          position: relative;
-          width: 18rem;
-          height: 48rem;
-          .card {
-            width: 22.5rem;
-            width: 16rem;
+
+          &:nth-child(2) {
+            width: 201px;
+            height: 296px;
+            right: 221px;
+            top: 430px;
           }
-        }
-        .image-box3 {
-          position: relative;
 
-          .card {
-            position: absolute;
-            border-radius: 0.7rem;
-
-            &:nth-child(1) {
-              width: 12.5rem;
-              height: 18.5rem;
-              left: 0;
-              top: 100px;
-            }
-
-            &:nth-child(2) {
-              left: 220px;
-              top: 220px;
-              width: 30.5rem;
-            }
-
-            &:nth-child(3) {
-              bottom: 60px;
-              left: 0;
-              width: 12.5rem;
-              height: 18.5rem;
-            }
-
-            &:nth-child(4) {
-              left: 220px;
-              bottom: -70px;
-              width: 12.5rem;
-              height: 18.5rem;
-            }
+          &:nth-child(3) {
+            width: 201px;
+            height: 296px;
+            right: 0;
+            top: 322px;
           }
         }
       }
-    }
-
-    .get-started {
-      @include flex-box(3rem, column);
-      align-items: center;
-      text-align: center;
-
-      h2 {
-        color: var(--text);
-        font-family: var(--font-A);
-        font-weight: 500; 
-        font-size: 2rem;
+      .image-box2 {
+        position: relative;
+        width: 368px;
+        height: 842px;
+        .card {
+          width: 368px;
+          height: 764px;
+        }
       }
+      .image-box3 {
+        position: relative;
+        top: 90px;
 
-      button {
-        background-color: var(--bg);
-        color: var(--text-blue);
-        font-family: var(--font-B);
-        text-transform: capitalize;
-        font-weight: 700;
-        padding: .8rem 2.2rem;
-        border-radius: 50px;
-        font-size: .9rem;
+        .card {
+          position: absolute;
+          border-radius: 0.7rem;
+          object-fit: cover;
+          object-position: center;
+
+          &:nth-child(1) {
+            width: 201px;
+            height: 296px;
+            left: 0;
+          }
+
+          &:nth-child(2) {
+            width: 482px;
+            height: 296px;
+            left: 221px;
+            top: 110px;
+          }
+
+          &:nth-child(3) {
+            width: 201px;
+            height: 296px;
+            left: 0;
+            top: 316px;
+          }
+
+          &:nth-child(4) {
+            width: 201px;
+            height: 296px;
+            left: 221px;
+            top: 426px;
+          }
+        }
       }
     }
   }
 
+  .get-started {
+    @include flex-box(3rem, column);
+    align-items: center;
+    text-align: center;
+
+    h2 {
+      color: var(--text);
+      font-family: var(--font-A);
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    button {
+      background-color: var(--bg);
+      color: var(--text-blue);
+      font-family: var(--font-B);
+      text-transform: capitalize;
+      font-weight: 700;
+      padding: 0.8rem 2.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+  }
+}

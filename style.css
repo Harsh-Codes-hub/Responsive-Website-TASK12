@@ -68,70 +68,83 @@ section.hero .container h1 {
 section.hero .container .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0rem;
+  width: 1154px;
+  gap: 2rem;
+  position: relative;
 }
 section.hero .container .gallery .image-box1 {
   position: relative;
+  top: 90px;
 }
 section.hero .container .gallery .image-box1 .card {
   position: absolute;
   border-radius: 0.7rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 section.hero .container .gallery .image-box1 .card:nth-child(1) {
+  width: 525px;
+  height: 312px;
   right: 0;
-  top: 90px;
-  width: 33.5rem;
+  top: -10px;
 }
 section.hero .container .gallery .image-box1 .card:nth-child(2) {
-  width: 12.5rem;
-  height: 18.5rem;
-  bottom: -80px;
-  right: 220px;
+  width: 201px;
+  height: 296px;
+  right: 221px;
+  top: 430px;
 }
 section.hero .container .gallery .image-box1 .card:nth-child(3) {
-  width: 12.5rem;
-  height: 18.5rem;
-  bottom: 40px;
-  right: 0px;
+  width: 201px;
+  height: 296px;
+  right: 0;
+  top: 322px;
 }
 section.hero .container .gallery .image-box2 {
   position: relative;
-  width: 18rem;
-  height: 48rem;
+  width: 368px;
+  height: 842px;
 }
 section.hero .container .gallery .image-box2 .card {
-  width: 22.5rem;
-  width: 16rem;
+  width: 368px;
+  height: 764px;
 }
 section.hero .container .gallery .image-box3 {
   position: relative;
+  top: 90px;
 }
 section.hero .container .gallery .image-box3 .card {
   position: absolute;
   border-radius: 0.7rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 section.hero .container .gallery .image-box3 .card:nth-child(1) {
-  width: 12.5rem;
-  height: 18.5rem;
+  width: 201px;
+  height: 296px;
   left: 0;
-  top: 100px;
 }
 section.hero .container .gallery .image-box3 .card:nth-child(2) {
-  left: 220px;
-  top: 220px;
-  width: 30.5rem;
+  width: 482px;
+  height: 296px;
+  left: 221px;
+  top: 110px;
 }
 section.hero .container .gallery .image-box3 .card:nth-child(3) {
-  bottom: 60px;
+  width: 201px;
+  height: 296px;
   left: 0;
-  width: 12.5rem;
-  height: 18.5rem;
+  top: 316px;
 }
 section.hero .container .gallery .image-box3 .card:nth-child(4) {
-  left: 220px;
-  bottom: -70px;
-  width: 12.5rem;
-  height: 18.5rem;
+  width: 201px;
+  height: 296px;
+  left: 221px;
+  top: 426px;
 }
 section.hero .get-started {
   display: flex;
