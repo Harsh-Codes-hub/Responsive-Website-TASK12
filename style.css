@@ -50,8 +50,7 @@ section.hero {
   position: relative;
   background-image: radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 5%, transparent 60%), linear-gradient(136deg, transparent, hsl(199, 79%, 69%) 290%), linear-gradient(115deg, hsl(242, 76%, 77%), transparent 40%), linear-gradient(180deg, transparent 0, hsl(215, 78%, 46%) 70%), radial-gradient(ellipse at -70% -180%, transparent 80%, hsl(199, 79%, 69%) 0), radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%), radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
   overflow-x: hidden;
-  padding: 1rem;
-  padding-top: 10rem;
+  padding: 10rem 0rem 6rem;
 }
 section.hero .container {
   display: flex;
@@ -148,7 +147,7 @@ section.hero .container .gallery .image-box3 .card:nth-child(4) {
 }
 section.hero .get-started {
   display: flex;
-  gap: 3rem;
+  gap: 2.125rem;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -156,16 +155,18 @@ section.hero .get-started {
 section.hero .get-started h2 {
   color: var(--text);
   font-family: var(--font-A);
-  font-weight: 500;
-  font-size: 2rem;
+  font-weight: 400;
+  font-size: 2.01rem;
+  max-width: 880px;
 }
 section.hero .get-started button {
   background-color: var(--bg);
   color: var(--text-blue);
-  font-family: var(--font-B);
+  font-family: var(--font-A);
   text-transform: capitalize;
   font-weight: 700;
-  padding: 0.8rem 2.2rem;
+  padding: 0.8rem 2.35rem;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  scale: 0.8;
 }/*# sourceMappingURL=style.css.map */

@@ -69,8 +69,7 @@ section.hero {
     radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%),
     radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
   overflow-x: hidden;
-  padding: 1rem;
-  padding-top: 10rem;
+  padding: 10rem 0rem 6rem;
 
   .container {
     @include flex-box(5rem, column);
@@ -172,26 +171,28 @@ section.hero {
   }
 
   .get-started {
-    @include flex-box(3rem, column);
+    @include flex-box(2.125rem, column);
     align-items: center;
     text-align: center;
 
     h2 {
       color: var(--text);
       font-family: var(--font-A);
-      font-weight: 500;
-      font-size: 2rem;
+      font-weight: 400;
+      font-size: 2.01rem;
+      max-width: 880px;
     }
 
     button {
       background-color: var(--bg);
       color: var(--text-blue);
-      font-family: var(--font-B);
+      font-family: var(--font-A);
       text-transform: capitalize;
       font-weight: 700;
-      padding: 0.8rem 2.2rem;
+      padding: 0.8rem 2.35rem;
       border-radius: 50px;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      scale: 0.8;
     }
   }
 }
