@@ -62,13 +62,13 @@ section.hero .container {
 section.hero .container h1 {
   color: var(--text);
   font-family: var(--font-A);
-  font-size: 3rem;
+  font-size: 3.286rem;
 }
 section.hero .container .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 1154px;
-  gap: 2rem;
+  width: 866px;
+  gap: 0rem;
   position: relative;
 }
 section.hero .container .gallery .image-box1 {
@@ -82,6 +82,7 @@ section.hero .container .gallery .image-box1 .card {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
 }
 section.hero .container .gallery .image-box1 .card:nth-child(1) {
   width: 525px;
@@ -103,12 +104,18 @@ section.hero .container .gallery .image-box1 .card:nth-child(3) {
 }
 section.hero .container .gallery .image-box2 {
   position: relative;
-  width: 368px;
+  width: 286px;
   height: 842px;
+  display: flex;
+  gap: 0rem;
+  flex-direction: row;
+  justify-content: center;
 }
 section.hero .container .gallery .image-box2 .card {
-  width: 368px;
-  height: 764px;
+  width: 250px;
+  height: 519px;
+  box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
+  border-radius: 1.5rem;
 }
 section.hero .container .gallery .image-box3 {
   position: relative;
@@ -121,6 +128,7 @@ section.hero .container .gallery .image-box3 .card {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
 }
 section.hero .container .gallery .image-box3 .card:nth-child(1) {
   width: 201px;
@@ -156,8 +164,9 @@ section.hero .get-started h2 {
   color: var(--text);
   font-family: var(--font-A);
   font-weight: 400;
-  font-size: 2.01rem;
+  font-size: 2.5rem;
   max-width: 880px;
+  padding: 0 1rem;
 }
 section.hero .get-started button {
   background-color: var(--bg);
@@ -168,5 +177,5 @@ section.hero .get-started button {
   padding: 0.8rem 2.35rem;
   border-radius: 50px;
   font-size: 1rem;
-  scale: 0.8;
+  scale: 1;
 }/*# sourceMappingURL=style.css.map */
