@@ -72,7 +72,7 @@ section.hero {
   padding: 10rem 0rem 6rem;
 
   .container {
-    @include flex-box(5rem, column);
+    @include flex-box(0rem, column);
     text-align: center;
     align-items: center;
 
@@ -80,6 +80,7 @@ section.hero {
       color: var(--text);
       font-family: var(--font-A);
       font-size: 3.286rem;
+      margin-bottom: 5rem;
     }
 
     .gallery {
@@ -123,7 +124,6 @@ section.hero {
       }
       .image-box2 {
         position: relative;
-        // width: 368px;
         width: 286px;
         height: 842px;
         @include flex-box(0rem, row);
@@ -178,7 +178,7 @@ section.hero {
   }
 
   .get-started {
-    @include flex-box(2.125rem, column);
+    @include flex-box(2.901rem, column);
     align-items: center;
     text-align: center;
 
@@ -188,7 +188,6 @@ section.hero {
       font-weight: 400;
       font-size: 2.5rem;
       max-width: 880px;
-      padding: 0 1rem;
     }
 
     button {
@@ -201,6 +200,36 @@ section.hero {
       border-radius: 50px;
       font-size: 1rem;
       scale: 1;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  section.hero {
+    .container {
+      h1 {
+        font-size: 4.3rem;
+      }
+
+      .gallery {
+        width: 1152px;
+        gap: 2rem;
+        .image-box2 {
+          width: 368px;
+          height: 768px;
+          .card {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      .get-started {
+        margin-top: 10rem;
+        h2 {
+          padding: 0 1rem;
+        }
+      }
     }
   }
 }
