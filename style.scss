@@ -15,18 +15,20 @@
 }
 
 :root {
+  font-size: clamp(14px, 1vw, 18px);
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  font-size: clamp(14px, 1vw, 18px);
+  --bg: hsl(0, 100%, 100%);
+  --text: hsl(0, 100%, 100%);
+  --text-blue: hsl(215, 78%, 46%);
+  --text-green: hsl(173, 81%, 42%); 
+  --text-grey: hsl(0, 0%, 29%);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --text: hsl(0, 100%, 100%);
-  --bg: hsl(0, 100%, 100%);
-  --text-blue: hsl(215, 78%, 46%);
 }
 
 html,
@@ -68,13 +70,12 @@ section.hero {
     ),
     radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%),
     radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
-  overflow-x: hidden;
   padding: 10rem 0rem 6rem;
-
   .container {
     @include flex-box(0rem, column);
     text-align: center;
     align-items: center;
+    overflow: hidden;
 
     h1 {
       color: var(--text);
@@ -204,9 +205,107 @@ section.hero {
   }
 }
 
+section.tabs {
+  padding-top: 5rem;
+
+  .container {
+    width: calc(100% - (50px * 2));
+    max-width: 1280px;
+    margin: auto;
+
+    .tab-header {
+      @include flex-box(3.2rem, column);
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+
+      h2 {
+        font-family: var(--font-A);
+        font-weight: 300;
+        font-size: 2.27rem;
+        max-width: 800px;
+      }
+
+      .tab-menu {
+        background-color: hsl(210, 17%, 98%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: fit-content;
+        border-radius: 50px;
+        text-wrap: nowrap;
+        
+        button {
+          white-space: nowrap;
+          width: fit-content;
+          font-family: var(--font-A);
+          background-color: transparent;
+          padding: .7rem 2.2rem;
+          color: var(--text-blue);
+          font-weight: 600;
+          font-size: 1rem;
+          border-radius: 50px;
+        }
+
+        button.active {
+          background-color: var(--text-blue);
+          color: var(--text);
+        }
+
+      }
+    }
+
+    .tab-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      
+      .media {
+        height: 100%;
+        @include flex-box(0rem);
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        
+        video {
+          width: 100%;
+        }
+      }
+      
+      .text {
+        padding: 1.5rem;
+        
+        h3 {
+          font-family: var(--font-A);
+          color: var(--text-green);
+          font-size: 2.3rem;
+          margin-bottom: 1.5rem;
+        }
+
+        p {
+          font-family: var(--font-A);
+          color: var(--text-grey);
+          font-size: 1.3rem;
+          margin-bottom: 2rem;
+        }
+
+        button {
+          border: 1px solid var(--text-blue);
+          width: fit-content;
+          padding: 0.8rem 2.2rem;
+          font-family: var(--font-A);
+          color: var(--text-blue);
+          border-radius: 50px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   section.hero {
     .container {
+
       h1 {
         font-size: 4.3rem;
       }
@@ -231,5 +330,30 @@ section.hero {
         }
       }
     }
+  }
+
+  section.tabs {
+
+    .container {
+      .tab-header {
+        .tab-menu {
+          .menu {
+            button {
+              padding: 0.7rem 3.5rem;
+            }
+          }
+        }
+      }
+
+      .tab-content {
+      grid-template-columns: 1fr 350px;
+
+      .text {
+        align-content: center;
+      }
+    }
+    
+  }
+    
   }
 }

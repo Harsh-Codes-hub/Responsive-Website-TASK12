@@ -7,18 +7,20 @@
   src: url("./fonts/roboto.woff2");
 }
 :root {
+  font-size: clamp(14px, 1vw, 18px);
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  font-size: clamp(14px, 1vw, 18px);
+  --bg: hsl(0, 100%, 100%);
+  --text: hsl(0, 100%, 100%);
+  --text-blue: hsl(215, 78%, 46%);
+  --text-green: hsl(173, 81%, 42%);
+  --text-grey: hsl(0, 0%, 29%);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --text: hsl(0, 100%, 100%);
-  --bg: hsl(0, 100%, 100%);
-  --text-blue: hsl(215, 78%, 46%);
 }
 
 html,
@@ -49,7 +51,6 @@ section {
 section.hero {
   position: relative;
   background-image: radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 5%, transparent 60%), linear-gradient(136deg, transparent, hsl(199, 79%, 69%) 290%), linear-gradient(115deg, hsl(242, 76%, 77%), transparent 40%), linear-gradient(180deg, transparent 0, hsl(215, 78%, 46%) 70%), radial-gradient(ellipse at -70% -180%, transparent 80%, hsl(199, 79%, 69%) 0), radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%), radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
-  overflow-x: hidden;
   padding: 10rem 0rem 6rem;
 }
 section.hero .container {
@@ -58,6 +59,7 @@ section.hero .container {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  overflow: hidden;
 }
 section.hero .container h1 {
   color: var(--text);
@@ -180,6 +182,96 @@ section.hero .get-started button {
   scale: 1;
 }
 
+section.tabs {
+  padding-top: 5rem;
+}
+section.tabs .container {
+  width: calc(100% - 100px);
+  max-width: 1280px;
+  margin: auto;
+}
+section.tabs .container .tab-header {
+  display: flex;
+  gap: 3.2rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+section.tabs .container .tab-header h2 {
+  font-family: var(--font-A);
+  font-weight: 300;
+  font-size: 2.27rem;
+  max-width: 800px;
+}
+section.tabs .container .tab-header .tab-menu {
+  background-color: hsl(210, 17%, 98%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 50px;
+  text-wrap: nowrap;
+}
+section.tabs .container .tab-header .tab-menu button {
+  white-space: nowrap;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: var(--font-A);
+  background-color: transparent;
+  padding: 0.7rem 2.2rem;
+  color: var(--text-blue);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+}
+section.tabs .container .tab-header .tab-menu button.active {
+  background-color: var(--text-blue);
+  color: var(--text);
+}
+section.tabs .container .tab-content {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+section.tabs .container .tab-content .media {
+  height: 100%;
+  display: flex;
+  gap: 0rem;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+section.tabs .container .tab-content .media video {
+  width: 100%;
+}
+section.tabs .container .tab-content .text {
+  padding: 1.5rem;
+}
+section.tabs .container .tab-content .text h3 {
+  font-family: var(--font-A);
+  color: var(--text-green);
+  font-size: 2.3rem;
+  margin-bottom: 1.5rem;
+}
+section.tabs .container .tab-content .text p {
+  font-family: var(--font-A);
+  color: var(--text-grey);
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+section.tabs .container .tab-content .text button {
+  border: 1px solid var(--text-blue);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.8rem 2.2rem;
+  font-family: var(--font-A);
+  color: var(--text-blue);
+  border-radius: 50px;
+  font-weight: 600;
+}
+
 @media (min-width: 1024px) {
   section.hero .container h1 {
     font-size: 4.3rem;
@@ -201,5 +293,14 @@ section.hero .get-started button {
   }
   section.hero .container .get-started h2 {
     padding: 0 1rem;
+  }
+  section.tabs .container .tab-header .tab-menu .menu button {
+    padding: 0.7rem 3.5rem;
+  }
+  section.tabs .container .tab-content {
+    grid-template-columns: 1fr 350px;
+  }
+  section.tabs .container .tab-content .text {
+    align-content: center;
   }
 }/*# sourceMappingURL=style.css.map */
