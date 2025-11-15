@@ -1,3 +1,5 @@
+// Font-faces
+
 @font-face {
   font-family: google-sans;
   src: url("./fonts/google-sans.woff2");
@@ -8,22 +10,46 @@
   src: url("./fonts/roboto.woff2");
 }
 
-@mixin flex-box($gap: 0rem, $direction: column) {
+// Mixins
+
+@mixin flex(
+  $gap: 0,
+  $direction: column,
+  $align: flex-start,
+  $justify: flex-start
+) {
   display: flex;
   gap: $gap;
   flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
 }
 
+@mixin fluid-font($min, $mid, $max) {
+  font-size: clamp($min, $mid, $max);
+}
+
+// Root Variables
+
 :root {
-  font-size: clamp(14px, 1vw, 18px);
+  font-size: clamp(14px, 0.8vw, 18px);
+
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
-  --bg: hsl(0, 100%, 100%);
-  --text: hsl(0, 100%, 100%);
+
+  --bg: hsl(0, 0%, 100%);
+  --text-white: hsl(0, 0%, 100%);
   --text-blue: hsl(215, 78%, 46%);
-  --text-green: hsl(173, 81%, 42%); 
+  --text-green: hsl(173, 81%, 42%);
   --text-grey: hsl(0, 0%, 29%);
+
+  --radius-card: 0.7rem;
+  --radius-large: 50px;
+
+  --shadow-card: 0 4px 16px 18px hsla(0, 2%, 8%, 0.192);
 }
+
+// Resetting styles
 
 * {
   margin: 0;
@@ -37,24 +63,57 @@ body {
   width: 100%;
 }
 
+// Global Styles
+
 button {
   all: unset;
   cursor: pointer;
   width: fit-content;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-family: var(--font-A);
+  @include fluid-font(2.4rem, calc(1.8rem + 1vw), 3.6rem);
+  color: var(--text-white);
+}
+
+h2 {
+  font-family: var(--font-A);
+  @include fluid-font(1.8rem, calc(1.3rem + 0.7vw), 2.7rem);
+}
+
+h3 {
+  font-family: var(--font-A);
+  @include fluid-font(1.5rem, calc(1.1rem + 0.5vw), 2.1rem);
+}
+
+p {
+  font-family: var(--font-A);
+  @include fluid-font(1rem, calc(0.8rem + 0.3vw), 1.25rem);
+}
+
+// Main Layout Style
+
 main {
   width: 100%;
-  height: 100%;
-  @include flex-box();
+  @include flex();
 }
 
 section {
   width: 100%;
 }
 
-section.hero {
-  position: relative;
+// Hero section
+
+.hero {
+  padding: 10rem 0 6rem;
+
   background-image: radial-gradient(
       ellipse at bottom,
       hsl(215, 78%, 46%) 5%,
@@ -70,290 +129,133 @@ section.hero {
     ),
     radial-gradient(ellipse at bottom, hsl(215, 78%, 46%) 40%, transparent 80%),
     radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
-  padding: 10rem 0rem 6rem;
+
   .container {
-    @include flex-box(0rem, column);
+    max-width: 1200px;
+    margin: auto;
+    @include flex(0, column, center, center);
     text-align: center;
-    align-items: center;
-    overflow: hidden;
 
     h1 {
-      color: var(--text);
-      font-family: var(--font-A);
-      font-size: 3.286rem;
-      margin-bottom: 5rem;
+      padding-bottom: 6rem;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      width: 866px;
-      gap: 0rem;
+      width: min(90%, 1150px);
       position: relative;
-
-      .image-box1 {
-        position: relative;
-        top: 90px;
-        .card {
-          position: absolute;
-          border-radius: 0.7rem;
-          object-fit: cover;
-          object-position: center;
-          box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
-
-          &:nth-child(1) {
-            width: 525px;
-            height: 312px;
-            right: 0;
-            top: -10px;
-          }
-
-          &:nth-child(2) {
-            width: 201px;
-            height: 296px;
-            right: 221px;
-            top: 430px;
-          }
-
-          &:nth-child(3) {
-            width: 201px;
-            height: 296px;
-            right: 0;
-            top: 322px;
-          }
-        }
-      }
-      .image-box2 {
-        position: relative;
-        width: 286px;
-        height: 842px;
-        @include flex-box(0rem, row);
-        justify-content: center;
-        .card {
-          width: 250px;
-          height: 519px;
-          box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
-          border-radius: 1.5rem;
-        }
-      }
-      .image-box3 {
-        position: relative;
-        top: 90px;
-
-        .card {
-          position: absolute;
-          border-radius: 0.7rem;
-          object-fit: cover;
-          object-position: center;
-          box-shadow: 0px 16px 48px hsla(0, 2%, 8%, 0.342);
-
-          &:nth-child(1) {
-            width: 201px;
-            height: 296px;
-            left: 0;
-          }
-
-          &:nth-child(2) {
-            width: 482px;
-            height: 296px;
-            left: 221px;
-            top: 110px;
-          }
-
-          &:nth-child(3) {
-            width: 201px;
-            height: 296px;
-            left: 0;
-            top: 316px;
-          }
-
-          &:nth-child(4) {
-            width: 201px;
-            height: 296px;
-            left: 221px;
-            top: 426px;
-          }
-        }
-      }
-    }
-  }
-
-  .get-started {
-    @include flex-box(2.901rem, column);
-    align-items: center;
-    text-align: center;
-
-    h2 {
-      color: var(--text);
-      font-family: var(--font-A);
-      font-weight: 400;
-      font-size: 2.5rem;
-      max-width: 880px;
-    }
-
-    button {
-      background-color: var(--bg);
-      color: var(--text-blue);
-      font-family: var(--font-A);
-      text-transform: capitalize;
-      font-weight: 700;
-      padding: 0.8rem 2.35rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      scale: 1;
     }
   }
 }
 
-section.tabs {
-  padding-top: 5rem;
+.card {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  object-fit: cover;
+  object-position: center;
+}
 
-  .container {
-    width: calc(100% - (50px * 2));
-    max-width: 1280px;
-    margin: auto;
+.image-box1 {
+  position: relative;
+  top: 110px;
 
-    .tab-header {
-      @include flex-box(3.2rem, column);
-      align-items: center;
-      text-align: center;
-      margin-bottom: 3rem;
+  .card:nth-child(1) {
+    width: 525px;
+    height: 312px;
+    right: 0;
+    top: -10px;
+    position: absolute;
+  }
+  .card:nth-child(2) {
+    width: 201px;
+    height: 296px;
+    right: 221px;
+    top: 432px;
+    position: absolute;
+  }
+  .card:nth-child(3) {
+    width: 201px;
+    height: 296px;
+    right: 0;
+    top: 324px;
+    position: absolute;
+  }
 
-      h2 {
-        font-family: var(--font-A);
-        font-weight: 300;
-        font-size: 2.27rem;
-        max-width: 800px;
-      }
-
-      .tab-menu {
-        background-color: hsl(210, 17%, 98%);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: fit-content;
-        border-radius: 50px;
-        text-wrap: nowrap;
-        
-        button {
-          white-space: nowrap;
-          width: fit-content;
-          font-family: var(--font-A);
-          background-color: transparent;
-          padding: .7rem 2.2rem;
-          color: var(--text-blue);
-          font-weight: 600;
-          font-size: 1rem;
-          border-radius: 50px;
-        }
-
-        button.active {
-          background-color: var(--text-blue);
-          color: var(--text);
-        }
-
-      }
-    }
-
-    .tab-content {
-      display: grid;
-      grid-template-columns: 1fr;
-      
-      .media {
-        height: 100%;
-        @include flex-box(0rem);
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        
-        video {
-          width: 100%;
-        }
-      }
-      
-      .text {
-        padding: 1.5rem;
-        
-        h3 {
-          font-family: var(--font-A);
-          color: var(--text-green);
-          font-size: 2.3rem;
-          margin-bottom: 1.5rem;
-        }
-
-        p {
-          font-family: var(--font-A);
-          color: var(--text-grey);
-          font-size: 1.3rem;
-          margin-bottom: 2rem;
-        }
-
-        button {
-          border: 1px solid var(--text-blue);
-          width: fit-content;
-          padding: 0.8rem 2.2rem;
-          font-family: var(--font-A);
-          color: var(--text-blue);
-          border-radius: 50px;
-          font-weight: 600;
-        }
-      }
-    }
+  .card:nth-child(4) {
+    width: 201px;
+    height: 296px;
+    right: 0;
+    top: 322px;
+    position: absolute;
   }
 }
 
-@media (min-width: 1024px) {
-  section.hero {
-    .container {
+.image-box2 {
+  position: relative;
+  width: 286px;
+  height: 842px;
+  @include flex(row, 0);
 
-      h1 {
-        font-size: 4.3rem;
-      }
+  .card {
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+  }
+}
 
-      .gallery {
-        width: 1152px;
-        gap: 2rem;
-        .image-box2 {
-          width: 368px;
-          height: 768px;
-          .card {
-            width: 100%;
-            height: auto;
-          }
-        }
-      }
+.image-box3 {
+  position: relative;
+  top: 110px;
 
-      .get-started {
-        margin-top: 10rem;
-        h2 {
-          padding: 0 1rem;
-        }
-      }
-    }
+  .card:nth-child(1) {
+    width: 201px;
+    height: 296px;
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+  .card:nth-child(2) {
+    width: 482px;
+    height: 296px;
+    left: 221px;
+    top: 110px;
+    position: absolute;
+  }
+  .card:nth-child(3) {
+    width: 201px;
+    height: 296px;
+    left: 0;
+    top: 316px;
+    position: absolute;
+  }
+  .card:nth-child(4) {
+    width: 201px;
+    height: 296px;
+    left: 221px;
+    top: 426px;
+    position: absolute;
+  }
+}
+
+.get-started {
+  @include flex(2.5rem, column, center, center);
+  text-align: center;
+  margin-top: 5rem;
+
+  h2 {
+    font-weight: 400;
+    max-width: 880px;
+    color: var(--text-white);
   }
 
-  section.tabs {
-
-    .container {
-      .tab-header {
-        .tab-menu {
-          .menu {
-            button {
-              padding: 0.7rem 3.5rem;
-            }
-          }
-        }
-      }
-
-      .tab-content {
-      grid-template-columns: 1fr 350px;
-
-      .text {
-        align-content: center;
-      }
-    }
-    
-  }
-    
+  button {
+    background: var(--bg);
+    color: var(--text-blue);
+    font-family: var(--font-A);
+    font-weight: 700;
+    padding: 0.8rem 2.3rem;
+    border-radius: var(--radius-large);
+    @include fluid-font(0.9rem, calc(0.84rem + 0.2vw), 1.1rem);
   }
 }
