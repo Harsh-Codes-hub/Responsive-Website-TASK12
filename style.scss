@@ -37,7 +37,7 @@
   --font-A: google-sans, system-ui;
   --font-B: roboto, system-ui;
 
-  --bg: hsl(0, 0%, 100%);
+  --bg: hsl(210, 17%, 98%);
   --text-white: hsl(0, 0%, 100%);
   --text-blue: hsl(215, 78%, 46%);
   --text-green: hsl(173, 81%, 42%);
@@ -46,7 +46,7 @@
   --radius-card: 0.7rem;
   --radius-large: 50px;
 
-  --shadow-card: 0 4px 16px 18px hsla(0, 2%, 8%, 0.192);
+  --shadow-card: 0 4px 16px hsla(0, 2%, 8%, 0.192);
 }
 
 // Resetting styles
@@ -103,6 +103,7 @@ p {
 main {
   width: 100%;
   @include flex();
+  overflow: hidden;
 }
 
 section {
@@ -131,7 +132,7 @@ section {
     radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
 
   .container {
-    max-width: 1200px;
+    max-width: 1024px;
     margin: auto;
     @include flex(0, column, center, center);
     text-align: center;
@@ -145,6 +146,7 @@ section {
       grid-template-columns: repeat(3, 1fr);
       width: min(90%, 1150px);
       position: relative;
+      gap: 2rem;
     }
   }
 }
@@ -195,12 +197,13 @@ section {
   position: relative;
   width: 286px;
   height: 842px;
+  place-self: center;
   @include flex(row, 0);
 
   .card {
     width: 100%;
     height: auto;
-    border-radius: 1.5rem;
+    border-radius: clamp(1.5rem, 2rem, 2.7rem);
   }
 }
 
@@ -239,14 +242,17 @@ section {
 }
 
 .get-started {
+  position: relative;
+  z-index: 5;
   @include flex(2.5rem, column, center, center);
   text-align: center;
   margin-top: 5rem;
 
   h2 {
-    font-weight: 400;
+    font-weight: 300;
     max-width: 880px;
     color: var(--text-white);
+    padding-inline: 1rem;
   }
 
   button {
@@ -257,5 +263,106 @@ section {
     padding: 0.8rem 2.3rem;
     border-radius: var(--radius-large);
     @include fluid-font(0.9rem, calc(0.84rem + 0.2vw), 1.1rem);
+  }
+}
+
+// tabs section
+
+.tabs {
+  padding-top: 5rem;
+
+  .container {
+    width: calc(100% - 100px);
+    margin: auto;
+  }
+
+  .tab-header {
+    @include flex(3rem, column, center, center);
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      max-width: 850px;
+      font-weight: 300;
+    }
+
+    .tab-menu {
+      background-color: var(--bg);
+      display: flex;
+      border-radius: var(--radius-large);
+      text-wrap: nowrap;
+
+      button {
+        padding: 0.7rem 2.2rem;
+        font-family: var(--font-A);
+        font-weight: 600;
+        color: var(--text-blue);
+        border-radius: var(--radius-large);
+        @include fluid-font(1rem, calc(0.9rem + 0.2vw), 1.1rem);
+      }
+
+      button.active {
+        background: var(--text-blue);
+        color: var(--text-white);
+      }
+    }
+  }
+
+  .tab-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+
+    .media {
+      @include flex(0, column, center, center);
+      video {
+        width: 100%;
+      }
+    }
+
+    .text {
+      padding: 1.5rem;
+
+      h3 {
+        color: var(--text-green);
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--text-grey);
+        font-weight: 500;
+        margin-block: 1.5rem;
+      }
+
+      button {
+        font-family: var(--font-A);
+        color: var(--text-blue);
+        border: 1px solid var(--text-blue);
+        padding: 0.8rem 2.2rem;
+        border-radius: var(--radius-large);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// media queries
+
+@media (min-width: 1024px) {
+  .hero .container {
+    .get-started {
+      margin-top: 10rem;
+    }
+    & .gallery {
+      .image-box2 {
+        width: 368px;
+      }
+    }
+  }
+
+  .tabs .tab-content {
+    grid-template-columns: 1fr 350px;
   }
 }
