@@ -15,6 +15,8 @@
   --text-blue: hsl(215, 78%, 46%);
   --text-green: hsl(173, 81%, 42%);
   --text-grey: hsl(0, 0%, 29%);
+  --text-purple: hsl(263, 87%, 60%);
+  --text-orange: hsl(5, 86%, 63%);
   --radius-card: 0.7rem;
   --radius-large: 50px;
   --shadow-card: 0 4px 16px hsla(0, 2%, 8%, 0.192);
@@ -59,6 +61,11 @@ h2 {
 h3 {
   font-family: var(--font-A);
   font-size: clamp(1.5rem, 1.1rem + 0.5vw, 2.1rem);
+}
+
+h4 {
+  font-family: var(--font-A);
+  font-size: clamp(1.3rem, 0.9rem + 0.4vw, 1.8rem);
 }
 
 p {
@@ -228,7 +235,7 @@ section {
   padding-top: 5rem;
 }
 .tabs .container {
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   margin: auto;
 }
 .tabs .tab-header {
@@ -304,6 +311,63 @@ section {
   width: calc(100% - 50px);
   margin: auto;
 }
+.feature .feature-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 3rem;
+}
+.feature .feature-box .media {
+  margin-bottom: 3rem;
+  overflow: hidden;
+  order: 1;
+}
+.feature .feature-box .media img {
+  max-width: 600px;
+}
+.feature .feature-box .text {
+  padding: 1rem;
+  order: 2;
+  font-family: var(--font-A);
+  align-self: center;
+}
+.feature .feature-box {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.feature .feature-box .text {
+  padding: rem;
+}
+.feature .feature-box .text h4 {
+  margin-bottom: 0.5rem;
+}
+.feature .feature-box .text h2 {
+  margin-bottom: 2rem;
+}
+.feature .feature-box .text p {
+  max-width: 90%;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.feature .feature-box .text button {
+  color: var(--text-blue);
+  border: 1px solid var(--text-blue);
+  padding: 0.8rem 2.2rem;
+  border-radius: var(--radius-large);
+  font-weight: 600;
+}
+.feature .feature-box:nth-child(1) .text h4 {
+  color: var(--text-blue);
+}
+.feature .feature-box:nth-child(2) .text h4 {
+  color: var(--text-green);
+}
+.feature .feature-box:nth-child(3) .text h4 {
+  color: var(--text-purple);
+}
+.feature .feature-box:nth-child(4) .text h4 {
+  color: var(--text-orange);
+}
+
 @media (min-width: 1024px) {
   .hero .container .get-started {
     margin-top: 10rem;
@@ -313,5 +377,23 @@ section {
   }
   .tabs .tab-content {
     grid-template-columns: 1fr 350px;
+  }
+  .feature .container .feature-box {
+    grid-template-columns: 1fr 1fr;
+  }
+  .feature .container .feature-box .media img {
+    max-width: 500px;
+  }
+  .feature .container .feature-box .media {
+    order: 2;
+  }
+  .feature .container .feature-box .text {
+    order: 1;
+  }
+  .feature .container .inverse .media {
+    order: 1;
+  }
+  .feature .container .inverse .text {
+    order: 2;
   }
 }/*# sourceMappingURL=style.css.map */
