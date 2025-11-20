@@ -280,7 +280,7 @@ section {
   width: 100%;
 }
 .tabs .tab-content .text {
-  padding: 1.5rem;
+  padding: clamp(1rem, 1vw, 1.5rem);
 }
 .tabs .tab-content .text h3 {
   color: var(--text-green);
@@ -300,6 +300,10 @@ section {
   font-weight: 600;
 }
 
+.feature .container {
+  width: calc(100% - 50px);
+  margin: auto;
+}
 @media (min-width: 1024px) {
   .hero .container .get-started {
     margin-top: 10rem;

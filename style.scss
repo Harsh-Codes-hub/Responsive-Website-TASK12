@@ -323,7 +323,7 @@ section {
     }
 
     .text {
-      padding: 1.5rem;
+      padding: clamp(1rem, 1vw, 1.5rem);
 
       h3 {
         color: var(--text-green);
@@ -345,6 +345,19 @@ section {
         font-weight: 600;
       }
     }
+  }
+}
+
+// feature section
+.feature {
+  
+  .container {
+    width: calc(100% - 50px);
+    margin: auto;
+  }
+
+  .feature-box {
+    
   }
 }
 
