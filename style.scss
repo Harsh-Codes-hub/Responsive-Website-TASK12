@@ -71,6 +71,7 @@ button {
   all: unset;
   cursor: pointer;
   width: fit-content;
+  font-family: var(--font-A);
 }
 
 img {
@@ -280,7 +281,8 @@ section {
 
   .container {
     width: calc(100% - 75px);
-    margin: auto;
+    max-width: 1100px;
+    margin-inline: auto;
   }
 
   .tab-header {
@@ -319,7 +321,8 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    max-width: 1100px;
+    max-width: 900px;
+    width: calc(100% - 25px);
     margin-inline: auto;
 
     .media {
@@ -358,8 +361,9 @@ section {
 // feature section
 .feature {
   .container {
+    max-width: 1100px;
     width: calc(100% - 50px);
-    margin: auto;
+    margin-inline: auto;
   }
 
   .feature-box {
@@ -371,9 +375,10 @@ section {
       margin-bottom: 3rem;
       overflow: hidden;
       order: 1;
+      width: fit-content;
 
       img {
-        max-width: 600px;
+        max-width: 550px;
       }
     }
 
@@ -389,7 +394,7 @@ section {
     max-width: 1100px;
     margin-inline: auto;
     .text {
-      padding: rem;
+      padding: 1rem;
       h4 {
         margin-bottom: 0.5rem;
       }
@@ -431,6 +436,46 @@ section {
   }
 }
 
+// dev stroy section
+
+.dev-story {
+  padding-block: 3rem;
+  
+  .container {
+    background-image: linear-gradient(90deg,hsl(360, 100%, 76%),hsl(42, 81%, 88%));
+    border-radius: 40px;
+    max-width: 1100px;
+    width: calc(100% - 100px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+
+    .text {
+      padding: 3rem;
+
+      h2 {
+        margin-block: 1rem 2rem;
+        font-weight: 400;
+      }
+
+      button {
+        font-weight: 500;
+      }
+    }
+
+    .media {
+      position: relative;
+      z-index: 1;
+
+      img {
+        max-height: 385px;
+        width: 385px;
+      }
+    }
+  }
+}
+
 // media queries
 
 @media (min-width: 1024px) {
@@ -454,7 +499,7 @@ section {
       grid-template-columns: 1fr 1fr;
 
       .media img {
-        max-width: 500px;
+        max-width: 450px;
       }
 
       .media {
@@ -472,6 +517,20 @@ section {
       }
       .text {
         order: 2;}
+    }
+  }
+
+  .dev-story .container {
+    grid-template-columns: 1fr minmax(0, 441px);
+    min-height: 315px;
+
+    .media {
+      
+      img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
     }
   }
 }

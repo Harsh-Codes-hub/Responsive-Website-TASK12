@@ -39,6 +39,7 @@ button {
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;
+  font-family: var(--font-A);
 }
 
 img {
@@ -236,7 +237,8 @@ section {
 }
 .tabs .container {
   width: calc(100% - 75px);
-  margin: auto;
+  max-width: 1100px;
+  margin-inline: auto;
 }
 .tabs .tab-header {
   display: flex;
@@ -273,7 +275,8 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  max-width: 1100px;
+  max-width: 900px;
+  width: calc(100% - 25px);
   margin-inline: auto;
 }
 .tabs .tab-content .media {
@@ -308,8 +311,9 @@ section {
 }
 
 .feature .container {
+  max-width: 1100px;
   width: calc(100% - 50px);
-  margin: auto;
+  margin-inline: auto;
 }
 .feature .feature-box {
   display: grid;
@@ -320,9 +324,11 @@ section {
   margin-bottom: 3rem;
   overflow: hidden;
   order: 1;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .feature .feature-box .media img {
-  max-width: 600px;
+  max-width: 550px;
 }
 .feature .feature-box .text {
   padding: 1rem;
@@ -335,7 +341,7 @@ section {
   margin-inline: auto;
 }
 .feature .feature-box .text {
-  padding: rem;
+  padding: 1rem;
 }
 .feature .feature-box .text h4 {
   margin-bottom: 0.5rem;
@@ -368,6 +374,38 @@ section {
   color: var(--text-orange);
 }
 
+.dev-story {
+  padding-block: 3rem;
+}
+.dev-story .container {
+  background-image: linear-gradient(90deg, hsl(0, 100%, 76%), hsl(42, 81%, 88%));
+  border-radius: 40px;
+  max-width: 1100px;
+  width: calc(100% - 100px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+.dev-story .container .text {
+  padding: 3rem;
+}
+.dev-story .container .text h2 {
+  margin-block: 1rem 2rem;
+  font-weight: 400;
+}
+.dev-story .container .text button {
+  font-weight: 500;
+}
+.dev-story .container .media {
+  position: relative;
+  z-index: 1;
+}
+.dev-story .container .media img {
+  max-height: 385px;
+  width: 385px;
+}
+
 @media (min-width: 1024px) {
   .hero .container .get-started {
     margin-top: 10rem;
@@ -382,7 +420,7 @@ section {
     grid-template-columns: 1fr 1fr;
   }
   .feature .container .feature-box .media img {
-    max-width: 500px;
+    max-width: 450px;
   }
   .feature .container .feature-box .media {
     order: 2;
@@ -395,5 +433,14 @@ section {
   }
   .feature .container .inverse .text {
     order: 2;
+  }
+  .dev-story .container {
+    grid-template-columns: 1fr minmax(0, 441px);
+    min-height: 315px;
+  }
+  .dev-story .container .media img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }/*# sourceMappingURL=style.css.map */
