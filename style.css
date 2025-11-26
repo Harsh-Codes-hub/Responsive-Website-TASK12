@@ -12,6 +12,7 @@
   --font-B: roboto, system-ui;
   --bg: hsl(210, 17%, 98%);
   --text-white: hsl(0, 0%, 100%);
+  --text-white: hsl(0, 0%, 0%);
   --text-blue: hsl(215, 78%, 46%);
   --text-green: hsl(173, 81%, 42%);
   --text-grey: hsl(0, 0%, 29%);
@@ -403,6 +404,105 @@ section {
 }
 .dev-story .container .media img {
   max-height: 385px;
+}
+
+.community {
+  overflow: hidden;
+  padding-block: 3rem;
+}
+.community .container {
+  height: 715px;
+  padding-top: 2rem;
+  text-align: center;
+  max-width: 1100px;
+  width: calc(100% - 50px);
+  margin-inline: auto;
+  --center-piece: 220px;
+}
+.community .container .logo-ground {
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 535px;
+}
+.community .container .text {
+  position: relative;
+  text-align: center;
+  top: -195px;
+  z-index: 3;
+}
+
+.logo-ground .inner-fixed {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr var(--center-piece) 1fr 1fr 1fr;
+  height: 100%;
+}
+.logo-ground .inner-fixed .logo-col {
+  position: relative;
+}
+.logo-ground .inner-fixed .logo-col div {
+  background-color: var(--bg);
+  width: 100px;
+  height: 100px;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  box-shadow: 0px 0px 16px hsla(0, 0%, 0%, 0.1);
+  display: grid;
+  place-items: center;
+}
+.logo-ground .inner-fixed .logo-col div img {
+  height: auto;
+  max-width: 100%;
+}
+.logo-ground .inner-fixed .logo-col:nth-child(1), .logo-ground .inner-fixed .logo-col:nth-child(7) {
+  top: -24px;
+}
+.logo-ground .inner-fixed .logo-col:nth-child(2), .logo-ground .inner-fixed .logo-col:nth-child(6) {
+  top: -48px;
+}
+.logo-ground .inner-fixed .logo-col:nth-child(3), .logo-ground .inner-fixed .logo-col:nth-child(5) {
+  top: 60px;
+}
+.logo-ground .inner-fixed .logo-col.logo-centerpiece div {
+  height: 220px;
+  width: 220px;
+  padding: 30px;
+}
+
+.community .container .text .heading-group {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+}
+.community .container .text .heading-group h4 {
+  font-weight: 500;
+}
+.community .container .text .heading-group h1 {
+  color: var(--text-black);
+  line-height: 1;
+}
+.community .container .text p {
+  margin: 0 auto 2rem;
+  max-width: 500px;
+}
+.community .container .text .button-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.community .container .text .button-group button {
+  font-weight: 500;
+}
+.community .container .text .button-group button:nth-child(1) {
+  border: 1px solid var(--text-blue);
+  color: var(--text-blue);
+  padding: 0.5rem 2.2rem;
+  border-radius: 50px;
 }
 
 @media (min-width: 1024px) {
