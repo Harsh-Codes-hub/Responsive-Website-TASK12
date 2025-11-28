@@ -404,7 +404,7 @@ section {
 }
 .dev-story .container .media img {
   position: static;
-  height: 385px;
+  height: auto;
   max-width: 385px;
 }
 
@@ -488,6 +488,7 @@ section {
   color: var(--text-grey);
 }
 .community .container .text .heading-group h1 {
+  margin-top: 0.5rem;
   color: var(--text-black);
   line-height: 1;
 }
