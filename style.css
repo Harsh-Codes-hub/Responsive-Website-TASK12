@@ -514,6 +514,57 @@ section {
   border-radius: 50px;
 }
 
+.dart {
+  padding-block: 3rem;
+}
+.dart .container {
+  background-image: linear-gradient(90deg, hsl(213, 82%, 79%), hsl(187, 80%, 85%));
+  border-radius: 40px;
+  max-width: 1100px;
+  width: calc(100% - 50px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+.dart .container .text {
+  padding: 3rem;
+}
+.dart .container .media {
+  position: relative;
+  z-index: 1;
+}
+.dart .container .text h2 {
+  margin-block: 1rem 2rem;
+  font-weight: 400;
+}
+.dart .container .text .button-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.dart .container .text .button-group button {
+  font-weight: 500;
+}
+.dart .container .text .button-group button:nth-child(1) {
+  border: 1px solid var(--text-black);
+  color: var(--text-black);
+  padding: 0.5rem 2.2rem;
+  border-radius: 50px;
+}
+.dart .media {
+  min-height: 325px;
+}
+.dart .media img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  max-width: 385px;
+}
+
 @media (min-width: 1024px) {
   .hero .container .get-started {
     margin-top: 10rem;
@@ -561,5 +612,8 @@ section {
   }
   .community .container .logo-ground {
     height: 700px;
+  }
+  .dart .container {
+    grid-template-columns: 1fr minmax(0, 441px);
   }
 }/*# sourceMappingURL=style.css.map */
