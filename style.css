@@ -607,7 +607,9 @@ section {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  padding-left: 50px;
   z-index: 5;
+  margin-left: -50px;
 }
 .news .carousel .carousel-slider::before {
   content: "";
@@ -639,9 +641,19 @@ section {
 }
 .carousel-slider .carousel-card a {
   z-index: 2;
+  width: 100%;
+}
+.carousel-slider .carousel-card a:nth-child(2) {
+  font-weight: 900;
 }
 .carousel-slider .carousel-card img {
+  margin-inline: auto;
   border-radius: 6px;
+  margin-bottom: 24px;
+  max-height: 202px;
+  position: relative;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (min-width: 1024px) {
@@ -694,5 +706,11 @@ section {
   }
   .dart .container {
     grid-template-columns: 1fr minmax(0, 441px);
+  }
+  .news .carousel {
+    padding-left: 50px;
+  }
+  .news .carousel .carousel-slider {
+    padding-left: calc((100vw - 1100px) / 2);
   }
 }/*# sourceMappingURL=style.css.map */

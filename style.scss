@@ -702,8 +702,9 @@ section {
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
+      padding-left: 50px;
       z-index: 5;
-      // margin-left: calc(50px * -1);
+      margin-left: calc(50px * -1);
 
       &::before {
         content: "";
@@ -736,10 +737,19 @@ section {
 
     a {
       z-index: 2;
+      width: 100%;
+      &:nth-child(2) {
+        font-weight: 900;
+      }
     }
-
+    
     img {
+      margin-inline: auto;
       border-radius: 6px;
+      margin-bottom: 24px;
+      max-height: 202px;
+      position: relative;
+      object-fit: contain;
     }
   }
 }
@@ -815,5 +825,12 @@ section {
 
   .dart .container {
     grid-template-columns: 1fr minmax(0, 441px);
+  }
+
+  .news .carousel {
+    padding-left: 50px;
+    .carousel-slider {
+      padding-left: calc((100vw - 1100px)/2);
+    }
   }
 }
