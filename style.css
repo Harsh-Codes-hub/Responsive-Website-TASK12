@@ -707,10 +707,7 @@ section {
   .dart .container {
     grid-template-columns: 1fr minmax(0, 441px);
   }
-  .news .carousel {
-    padding-left: 50px;
-  }
   .news .carousel .carousel-slider {
-    padding-left: calc((100vw - 1100px) / 2);
+    padding-left: max(50px, (100vw - 1100px) / 2);
   }
 }/*# sourceMappingURL=style.css.map */
