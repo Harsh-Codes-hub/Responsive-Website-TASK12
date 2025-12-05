@@ -39,6 +39,7 @@
 
   --bg: hsl(0, 0%, 100%);
   --bg-gray: hsl(210, 17%, 98%);
+  --bg-darkblue: hsl(212, 90%, 15%);
   --text-white: hsl(0, 0%, 100%);
   --text-black: hsl(0, 0%, 0%);
   --text-blue: hsl(215, 78%, 46%);
@@ -692,7 +693,6 @@ section {
   }
 
   .carousel {
-
     .carousel-slider {
       @include flex(0, row, stretch);
       overflow-x: auto;
@@ -712,12 +712,15 @@ section {
         height: 100px;
         padding-right: 50px;
       }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
 
 .carousel-slider {
-  
   .carousel-card {
     @include flex(0, row);
     align-content: space-between;
@@ -742,7 +745,7 @@ section {
         font-weight: 900;
       }
     }
-    
+
     img {
       margin-inline: auto;
       border-radius: 6px;
@@ -750,6 +753,145 @@ section {
       max-height: 202px;
       position: relative;
       object-fit: contain;
+    }
+  }
+}
+
+// newsletter section
+
+.newsletter {
+  margin-top: 2rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    max-width: 1100px;
+    width: calc(100% - (50px * 2));
+    margin-inline: auto;
+
+    .text h1 {
+      color: var(--text-black);
+      line-height: 1;
+    }
+
+    .form {
+      overflow: hidden;
+    }
+  }
+}
+
+.form form {
+  fieldset {
+    border: none;
+  }
+
+  h3 {
+    color: var(--text-grey);
+    margin-bottom: 1.5rem;
+  }
+
+  .field-wrapper {
+    margin-bottom: 2rem;
+
+    .field {
+      @include flex(0, row, center);
+      border: 1px solid transparent;
+      border-radius: var(--radius-large);
+      background-color: var(--bg-gray);
+      height: 70px;
+      padding: 0 2rem;
+      @include fluid-font(1.3rem, calc(0.9rem + 0.4vw), 1.8rem);
+    }
+  }
+
+  .field {
+    i {
+      color: var(--text-grey);
+      margin-right: 1rem;
+    }
+
+    input[type="email"] {
+      background-color: transparent;
+      border: none;
+      flex-grow: 1;
+      position: relative;
+      top: -1px;
+
+      &::placeholder {
+        @include fluid-font(1.3rem, calc(0.9rem + 0.4vw), 1.8rem);
+      }
+    }
+  }
+}
+
+// cta section
+
+.cta {
+  padding-block: 2rem;
+
+  .container {
+    background-color: var(--bg-darkblue);
+    max-width: 1100px;
+    width: calc(100% - (50px * 2));
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+
+    .text {
+      padding-inline: 50px;
+      padding-block: 96px;
+      @include flex(0, column, flex-start, space-between);
+      z-index: 2;
+      color: var(--text-white);
+
+      h1 {
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      .button-group {
+        @include flex(1rem, row, center, flex-start);
+        flex-wrap: wrap;
+        button {
+          font-weight: 500;
+          white-space: nowrap;
+          &:nth-child(1) {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--bg);
+            border: 1px solid var(--text-white);
+            color: var(--text-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+
+    .media {
+      right: 0;
+      top: 0;
+      border: 1px solid white;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+
+      img {
+        position: absolute;
+        height: 100%;
+        width: auto;
+        top: 0;
+        right: 0;
+        bottom: auto;
+      }
     }
   }
 }
@@ -829,8 +971,11 @@ section {
 
   .news .carousel {
     .carousel-slider {
-      padding-left: max(50px, calc((100vw - 1100px)/2));
-
+      padding-left: max(50px, calc((100vw - 1100px) / 2));
     }
+  }
+
+  .newsletter .container {
+    grid-template-columns: 40% 1fr;
   }
 }
