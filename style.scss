@@ -38,7 +38,7 @@
   --font-B: roboto, system-ui;
 
   --bg: hsl(0, 0%, 100%);
-  --bg-gray: hsl(210, 17%, 98%);
+  --bg-grey: hsl(210, 17%, 98%);
   --bg-darkblue: hsl(212, 90%, 15%);
   --text-white: hsl(0, 0%, 100%);
   --text-black: hsl(0, 0%, 0%);
@@ -66,6 +66,10 @@ html,
 body {
   height: 100%;
   width: 100%;
+}
+
+body {
+  position: relative;
 }
 
 // Global Styles
@@ -115,16 +119,126 @@ p {
   @include fluid-font(1rem, calc(0.8rem + 0.3vw), 1.25rem);
 }
 
+ul {
+  list-style-type: none;
+  font-family: var(--font-A);
+}
+
 // Main Layout Style
 
 main {
+  position: relative;
+  z-index: 8;
   width: 100%;
   @include flex();
   overflow: hidden;
+  top: 0;
+  left: 0;
 }
 
 section {
   width: 100%;
+}
+
+// header
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+  @include flex();
+
+  .content {
+    padding: 0 50px;
+    @include flex(0, row, center, space-between);
+    height: 86px;
+    width: 100%;
+    & > div {
+      @include flex(0, row, center, flex-start);
+    }
+  }
+
+  .content > div {
+    .logo {
+      position: relative;
+      top: -2px;
+      width: 125px;
+      z-index: 15;
+    }
+  }
+
+  .content .tray {
+    .navigation {
+      background-color: transparent;
+      display: none;
+      box-shadow: none;
+      font-size: 1rem;
+      margin-right: 5px;
+    }
+  }
+
+  .search {
+    display: none;
+    margin-right: 24px;
+    i {
+      color: var(--text-white);
+      display: inline-flex;
+      height: 100%;
+      left: 1px;
+      top: 1px;
+      position: relative;
+      align-items: center;
+      font-size: 18px;
+    }
+  }
+
+  .get-started-btn {
+    display: none;
+    background-color: var(--bg);
+    color: var(--text-blue);
+    font-weight: 700;
+    padding: 10px 25px;
+    border-radius: 50px;
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+
+    i {
+      color: var(--text-white);
+      position: relative;
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+}
+
+.navigation {
+  ul {
+    text-wrap: nowrap;
+    @include flex(0, row);
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    li {
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    a {
+      color: var(--text-white);
+      padding: 13px 16px;
+      text-align: left;
+    }
+  }
 }
 
 // Hero section
@@ -149,7 +263,7 @@ section {
     radial-gradient(ellipse at 5% 340%, transparent 80%, hsl(237, 71%, 85%) 0);
 
   .container {
-    max-width: 1024px;
+    max-width: 1100px;
     margin: auto;
     @include flex(0, column, center, center);
     text-align: center;
@@ -161,7 +275,7 @@ section {
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      width: min(90%, 1150px);
+      width: min(90%, 1100px);
       position: relative;
       gap: 2rem;
     }
@@ -630,7 +744,7 @@ section {
     position: relative;
 
     .text {
-      padding: clamp(1rem, 2rem, 3rem);
+      padding: 2.5rem;
     }
 
     .media {
@@ -680,7 +794,7 @@ section {
 
 .news {
   padding-block: 2rem;
-  background-color: var(--bg-gray);
+  background-color: var(--bg-grey);
 
   .container {
     max-width: 1100px;
@@ -798,7 +912,7 @@ section {
       @include flex(0, row, center);
       border: 1px solid transparent;
       border-radius: var(--radius-large);
-      background-color: var(--bg-gray);
+      background-color: var(--bg-grey);
       height: 70px;
       padding: 0 2rem;
       @include fluid-font(1.3rem, calc(0.9rem + 0.4vw), 1.8rem);
@@ -896,9 +1010,124 @@ section {
   }
 }
 
+// footer
+
+footer {
+  background-color: var(--bg-grey);
+  padding: 70px 3rem;
+  width: 100%;
+
+  .content {
+    @include flex(0, column, flex-start, space-between);
+    width: 100%;
+  }
+
+  .footer-main {
+    padding-bottom: 65px;
+  }
+
+  .footer-social {
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+    padding-bottom: 34px;
+  }
+
+  .footer-tray {
+    padding-top: 34px;
+  }
+}
+
+.footer-main {
+  .logo {
+    margin-bottom: 50px;
+    position: relative;
+    top: -5px;
+    width: 125px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+
+    ul {
+      display: inline-block;
+      margin-bottom: 50px;
+      margin-left: 1rem;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    li {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-grey);
+      &:first-child {
+        font-weight: 700;
+        color: var(--text-black);
+      }
+    }
+
+    a {
+      opacity: 0.7;
+    }
+  }
+}
+
+.footer-social > div {
+  @include flex(0, row, center);
+
+  a {
+    margin-right: 1.25rem;
+    i {
+      font-size: 1.5rem;
+      color: var(--text-grey);
+    }
+  }
+}
+
+.footer-tray {
+  p {
+    color: var(--text-grey);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul {
+    text-align: center;
+    width: 100%;
+
+    li {
+      display: inline;
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      a {
+        color: var(--text-grey);
+      }
+    }
+  }
+}
 // media queries
 
 @media (min-width: 1024px) {
+  header {
+    .content .tray .navigation {
+      display: inline-block;
+    }
+    .search {
+      @include flex(0, row);
+    }
+
+    .get-started-btn {
+      @include flex(0, row, center, center);
+    }
+
+    .hamburger-btn {
+      display: none;
+    }
+  }
+
   .hero .container {
     .get-started {
       margin-top: 10rem;
@@ -971,11 +1200,33 @@ section {
 
   .news .carousel {
     .carousel-slider {
-      padding-left: max(50px, calc((100vw - 1100px) / 2));
+      padding-left: max(50px, calc((100vw - 1200px) / 2));
     }
   }
 
   .newsletter .container {
     grid-template-columns: 40% 1fr;
+  }
+
+  footer {
+    .content {
+      flex-direction: row;
+    }
+  }
+
+  .footer-main .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+    width: 55%;
+  }
+
+  .footer-tray {
+    p {
+      width: 70%;
+    }
+
+    ul {
+      text-align: left;
+      width: auto;
+    }
   }
 }
